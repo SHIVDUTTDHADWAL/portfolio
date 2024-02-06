@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: rgba(255, 255, 255, 0.833);
+      }
+      .box {
+        width: 360px;
+        padding: 8% 0 0;
+        margin: auto;
+      }
+      .form {
+        position: relative;
+        z-index: 1;
+        background: transparent;
+        max-width: 360px;
+        margin: 0 auto 100px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2),
+          0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        font-size: x-large;
+      }
+      .form input {
+        font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        outline: 0;
+        background: #f4eaea;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="form">
+        <form onsubmit="return validation()">
+          <label for="username">USERNAME</label>
+          <input
+            type="text"
+            id="user"
+            placeholder="Enter your name"
+            autocomplete="off"
+          />
+          <br /><span id="userr" style="color: red; font-weight: bold"></span>
+          <label for="password">PASSWORD</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password "
+            autocomplete="off"
+          />
+          <br /><span id="pass" style="color: red; font-weight: bolder"></span>
+          <label for="email">EMAIL</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="enter your email"
+            autocomplete="off"
+          />
+          <br /><span id="mail" style="color: red; font-weight: bolder"></span>
+          <label for="mobile number">MOBILE NUMBER</label>
+          <input
+            type="number"
+            id="mobile"
+            placeholder="Enter your mobile number"
+            autocomplete="off"
+          />
+          <br /><span
+            id="number"
+            style="color: red; font-weight: bolder"
+          ></span>
+
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
+
+    <script>
+      function validation() {
+        let user = document.getElementById("user").value;
+        let password = document.getElementById("password").value;
+        let email = document.getElementById("email").value;
+        let mobile = document.getElementById("mobile").value;
+        if (user == "") {
+          document.getElementById("userr").innerHTML =
+            "please fill the username";
+          return false;
+        }
+        if (user.length <= 5 || user.length > 20) {
+          document.getElementById("userr").innerHTML =
+            "character length must be between 5 to 20 ";
+          return false;
+        }
+
+        if (!isNaN(user)) {
+          document.getElementById("userr").innerHTML =
+            "only chracter are allowed";
+          return false;
+        }
+
+        if (password == "") {
+          document.getElementById("pass").innerHTML = "fill the password";
+          return false;
+        }
+
+        if (password.length <= 6) {
+          document.getElementById("pass").innerHTML = "password must be strong";
+          return false;
+        }
+
+        if (email == "") {
+          document.getElementById("mail").innerHTML =
+            "plese fill email email section";
+          return false;
+        }
+
+        if (mobile == "") {
+          document.getElementById("number").innerHTML =
+            "please fill your number";
+          return false;
+        }
+        if (mobile.length < 10 || mobile.length > 10) {
+          document.getElementById("number").innerHTML =
+            "please fill your number correctly";
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
